@@ -21,6 +21,7 @@ typedef struct detail {
 typedef struct __PHONE_BOOK_ENTRY {
     char lastName[MAX_LAST_NAME_SIZE];
     struct __PHONE_BOOK_ENTRY *pNext;
+    struct __PHONE_BOOK_ENTRY *child;
     struct infor *detail;
 } entry;
 
