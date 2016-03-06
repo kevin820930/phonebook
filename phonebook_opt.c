@@ -51,10 +51,7 @@ entry *findName(char lastName[], entry *pHead)
 entry *append(char lastName[], entry *e)
 {
     entry *init=e;
-    int remembernext=0;
     char judge=lastName[0];
-    if(e->pNext!=NULL)
-        remembernext=1;
     while(e->pNext!=NULL&&judge!=e->pNext->lastName[0]) {
         e = e->pNext;
     }
