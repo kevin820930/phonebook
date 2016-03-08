@@ -70,9 +70,9 @@ int main(int argc, char *argv[])
 
     assert(findName(input, e) &&
            "Did you implement findName() in " IMPL "?");
-    
+
     assert(0 == strcmp(findName(input, e)->lastName, "faala"));
-    
+
 #if defined(__GNUC__)
     __builtin___clear_cache((char *) pHead, (char *) pHead + sizeof(entry));
 #endif
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
     FILE *output;
 #if defined(OPT)
     output = fopen("opt.txt", "a");
-#else 
+#else
     output = fopen("orig.txt", "a");
 #endif
 

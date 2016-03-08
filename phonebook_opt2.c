@@ -15,7 +15,7 @@ entry *findName(char lastName[], entry *pHead)
     else if(judge==pHead->pNext->lastName[0]) {
         pHead=pHead->pNext->child;
         while(pHead!=NULL) {
-            if(strcasecmp(lastName, pHead->lastName) == 0){
+            if(strcasecmp(lastName, pHead->lastName) == 0) {
                 //printf("%s\n",pHead->lastName);
                 return pHead;
             }
@@ -33,7 +33,7 @@ entry *append(char lastName[], entry *e)
     char judge=lastName[0];
     if(e->pNext!=NULL)
         remembernext=1;
-        while(e->pNext!=NULL && judge!=e->pNext->lastName[0]) {
+    while(e->pNext!=NULL && judge!=e->pNext->lastName[0]) {
         e = e->pNext;
     }
     if(e->pNext==NULL) {
