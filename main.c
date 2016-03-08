@@ -3,7 +3,7 @@
 #include <string.h>
 #include <time.h>
 #include <assert.h>
-
+#include <unistd.h>
 #include IMPL
 
 #define DICT_FILE "./dictionary/words.txt"
@@ -23,6 +23,7 @@ static double diff_in_second(struct timespec t1, struct timespec t2)
 
 int main(int argc, char *argv[])
 {
+    //printf("pid: %d\n", getpid());
     FILE *fp;
     int i = 0;
     char line[MAX_LAST_NAME_SIZE];
@@ -64,13 +65,14 @@ int main(int argc, char *argv[])
 
     /* the givn last name to find */
     //char input[MAX_LAST_NAME_SIZE] = "zyxel";
-    char input[MAX_LAST_NAME_SIZE] = "zaakosa";
+    char input[MAX_LAST_NAME_SIZE] = "faala";
     e = pHead;
 
     assert(findName(input, e) &&
            "Did you implement findName() in " IMPL "?");
-    assert(0 == strcmp(findName(input, e)->lastName,"zaakosa"));
-
+    
+    assert(0 == strcmp(findName(input, e)->lastName, "faala"));
+    
 #if defined(__GNUC__)
     __builtin___clear_cache((char *) pHead, (char *) pHead + sizeof(entry));
 #endif
@@ -83,9 +85,14 @@ int main(int argc, char *argv[])
     FILE *output;
 #if defined(OPT)
     output = fopen("opt.txt", "a");
-#else
+#else 
     output = fopen("orig.txt", "a");
 #endif
+
+#if defined(OPT2)
+    output = fopen("opt2.txt", "a");
+#endif
+
     fprintf(output, "append() findName() %lf %lf\n", cpu_time1, cpu_time2);
     fclose(output);
 

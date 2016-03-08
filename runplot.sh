@@ -1,4 +1,3 @@
-rm opt.txt orig.txt output.txt
-echo 1 | sudo tee /proc/sys/vm/drop_caches
+rm opt.txt orig.txt output.txt opt2.txt
 make plot
 eog runtime.png
